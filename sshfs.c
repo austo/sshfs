@@ -15,7 +15,11 @@
 #include <fuse_lowlevel.h>
 #endif
 #ifdef __APPLE__
-#  include <fuse_darwin.h>
+#  if defined(__aarch64__)
+#    include <fuse.h>
+#  else
+#    include <fuse_darwin.h>
+#  endif
 #endif
 #include <assert.h>
 #include <stdio.h>
